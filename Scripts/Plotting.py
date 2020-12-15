@@ -27,6 +27,7 @@ def plotExampleBox(input, saveLocation, show=False,greyScale=False,flip=False):
     plt.margins(0,0)
     plt.gca().xaxis.set_major_locator(plt.NullLocator())
     plt.gca().yaxis.set_major_locator(plt.NullLocator())
+    #print("savelocation:",saveLocation)
     plt.savefig(saveLocation+'.png' , bbox_inches = 'tight',pad_inches = 0)
 
     if(show):

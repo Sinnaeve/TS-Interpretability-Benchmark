@@ -40,6 +40,29 @@ DataGenerationTypes=[None ,"Harmonic", "GaussianProcess", "PseudoPeriodic", "Aut
 
 models=["Transformer" ,"LSTMWithInputCellAttention","TCN","LSTM"]
 
+"""
+
+DatasetsTypes= ["Middle"]
+
+ImpTimeSteps=[30]
+ImpFeatures=[30]
+
+StartImpTimeSteps=[10]
+StartImpFeatures=[10]
+
+Loc1=[None]
+Loc2=[None]
+
+
+FreezeType = [None]
+isMoving=[False]
+isPositional=[False]
+
+DataGenerationTypes=[None ,"Harmonic", "GaussianProcess", "PseudoPeriodic", "AutoRegressive" ,"CAR","NARMA" ]
+
+models=["LSTM"]
+
+"""
 
 def main(args):
 	# Creating Datasets

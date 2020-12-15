@@ -30,7 +30,7 @@ class LSTM(nn.Module):
         x = self.drop(x)
         output, _ = self.rnn(x, (h0, c0))
         output = self.drop(output)
-        output=output[:,-1,:]
+        output=output[:,-1,:] #output dimension [btach, seqlen, hidden_size] car batch_first=True, dc on selectionne dernier hidden state (seqto1)
         out = self.fc(output)
         out =F.softmax(out, dim=1)
         return out
