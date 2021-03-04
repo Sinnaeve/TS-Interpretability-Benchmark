@@ -11,6 +11,7 @@ from getAccuracyMetrics import main as getAccuracyMetrics
 from getFeatureTimePrecisionRecall import main as getFeatureTimePrecisionRecall
 import timesynth as ts
 import numpy as np
+import time
 
 
 
@@ -22,6 +23,7 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 DatasetsTypes= ["Middle", "SmallMiddle", "Moving_Middle", "Moving_SmallMiddle", "RareTime", "Moving_RareTime", "RareFeature","Moving_RareFeature","PostionalTime", "PostionalFeature"]
 
+"""
 ImpTimeSteps=[30,14,30,15,6,6, 40,40,20,20]
 ImpFeatures=[30,14,30,15,40,40,6,6,20,20]
 
@@ -37,7 +39,7 @@ isMoving=[False,False,True,True,False,True,False,True,None,None]
 isPositional=[False,False,False,False,False,False,False,False,True,True]
 
 DataGenerationTypes=[None ,"Harmonic", "GaussianProcess", "PseudoPeriodic", "AutoRegressive" ,"CAR","NARMA" ]
-
+#None mean gaussian N(O,1)
 models=["Transformer" ,"LSTMWithInputCellAttention","TCN","LSTM"]
 
 """
@@ -58,13 +60,14 @@ FreezeType = [None]
 isMoving=[False]
 isPositional=[False]
 
-DataGenerationTypes=[None ,"Harmonic", "GaussianProcess", "PseudoPeriodic", "AutoRegressive" ,"CAR","NARMA" ]
+DataGenerationTypes=[None]
 
 models=["LSTM"]
 
-"""
+
 
 def main(args):
+	start = time.time()
 	# Creating Datasets
 	createDatasets(args,DatasetsTypes,ImpTimeSteps,ImpFeatures,StartImpTimeSteps,StartImpFeatures,Loc1,Loc2,FreezeType,isMoving,isPositional,DataGenerationTypes)
 
@@ -98,7 +101,7 @@ def main(args):
 	args.Time_PrecisionRecall=True
 	getAccuracyMetrics(args,DatasetsTypes,DataGenerationTypes,models)
 
-
+	print("temps execution: ", time.time()-start)
 
 
 
