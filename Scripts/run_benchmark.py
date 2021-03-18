@@ -44,23 +44,22 @@ models=["Transformer" ,"LSTMWithInputCellAttention","TCN","LSTM"]
 
 """
 
-DatasetsTypes= ["Middle"]
+ImpTimeSteps=[30,14,30,15,6,6, 40,40,20,20]
+ImpFeatures=[30,14,30,15,40,40,6,6,20,20]
 
-ImpTimeSteps=[30]
-ImpFeatures=[30]
+StartImpTimeSteps=[10,18,10,18,22,22,5,5,None,None ]
+StartImpFeatures=[10,18,10,18,5,5,22,22,None,None ]
 
-StartImpTimeSteps=[10]
-StartImpFeatures=[10]
-
-Loc1=[None]
-Loc2=[None]
+Loc1=[None,None,None,None,None,None,None,None,1,1]
+Loc2=[None,None,None,None,None,None,None,None,29,29]
 
 
-FreezeType = [None]
-isMoving=[False]
-isPositional=[False]
+FreezeType = [None,None,None,None,None,None,None,None,"Feature","Time"]
+isMoving=[False,False,True,True,False,True,False,True,None,None]
+isPositional=[False,False,False,False,False,False,False,False,True,True]
 
-DataGenerationTypes=[None]
+DataGenerationTypes=[None ,"Harmonic", "GaussianProcess", "PseudoPeriodic", "AutoRegressive" ,"CAR","NARMA" ]
+#None mean gaussian N(O,1)
 
 models=["LSTM"]
 
